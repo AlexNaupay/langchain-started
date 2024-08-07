@@ -54,6 +54,7 @@ prompt = PromptTemplate(
     input_variables=["text"]
 )
 
+# stuff=Limit to prompt limit
 cadena_que_resume_con_slang = load_summarize_chain(
     llm=chat_mini,
     chain_type="stuff",
