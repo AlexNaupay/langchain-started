@@ -160,3 +160,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /public_key_cryptography.pdf
+/instruct-embeddings-public-crypto/

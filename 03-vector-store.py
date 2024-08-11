@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings.huggingface import HuggingFaceInstructEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
 
@@ -24,7 +24,7 @@ def generate_document_chunks(data, chunk_size, overlap, function):
 
 def instantiate_embedding_model(model, device):
     # A junio de 2023 no hay modelos Instruct para español
-    embedding_instruct = HuggingFaceInstructEmbeddings(
+    embedding_instruct = HuggingFaceEmbeddings(
         model_name=model,
         model_kwargs={"device": device}
     )
@@ -58,13 +58,15 @@ def load_vectorstore(vectorstore_name, embedding_instruct):
 
 
 if __name__ == '__main__':
+    # https://python.langchain.com/v0.2/docs/how_to/embed_text/
+
     data = load_pdf_file()
 
     # Generamos un Document con una partición de 500 carácteres y un overlap del 10%
     documents = generate_document_chunks(data, chunk_size=128, overlap=12, function=len)
 
     # Si es la primera vez que se instancia el modelo entonces este se va a descargar y se va a cargar en el device CUDA
-    embedding_model = instantiate_embedding_model(model="hkunlp/instructor-large", device="cuda")
+    embedding_model = instantiate_embedding_model(model="hkunlp/instructor-large", device="cpu")
 
     # Ya teniendo el modelo de embedding entonces podemos generar el Vector Store, le asignamos el siguiente nombre:
     vectorstore_name = "instruct-embeddings-public-crypto"
