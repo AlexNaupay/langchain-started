@@ -10,3 +10,4 @@ tiktoken
 InstructorEmbedding
 sentence_transformers
 langchain-huggingface
+pypdf
