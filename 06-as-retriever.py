@@ -42,6 +42,6 @@ qa_chain_with_sources = RetrievalQAWithSourcesChain.from_chain_type(
     retriever=retriever_chroma
 )
 
-query = "What is the relevance of public key crypto?"
+query = 'What is public key cryptography important for?'
 answer = qa_chain_with_sources.invoke(query)
 print(answer)

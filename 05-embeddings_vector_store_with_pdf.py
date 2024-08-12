@@ -40,7 +40,7 @@ print(len(embeddings))  # embeddings length
 # !pip install langchain
 
 text_splitter = RecursiveCharacterTextSplitter(
-  chunk_size=500,
+  chunk_size=500,  # It depends on embeddings_model.client.max_seq_length = 512
   chunk_overlap=50,
   length_function=len,
 )
@@ -67,7 +67,7 @@ vectorstore_chroma = Chroma(
     embedding_function=embeddings_model
 )
 
-query = "What is public key cryptography?"
+query = "What is public key cryptography important for?"
 docs = vectorstore_chroma.similarity_search_with_score(query, k=5)
 
 print(docs[3])
