@@ -22,3 +22,6 @@ embeddings = embeddings_model.embed_documents(documents_to_embedded)
 
 print(len(embeddings[0]))
 # print(embeddings[0])
+
+embeddings_query = embeddings_model.embed_query("Hello, my friend")
+print(embeddings_query)
