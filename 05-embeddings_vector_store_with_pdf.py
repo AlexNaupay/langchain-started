@@ -8,45 +8,37 @@ Original file is located at
 """
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%capture
 # !pip install langchain_community langchain-huggingface chromadb requests pypdf
 
-import requests
-
-url = 'https://www.cs.virginia.edu/~evans/greatworks/diffie.pdf'
-response = requests.get(url)
-
-with open('public_key_cryptography.pdf', 'wb') as f:
-  f.write(response.content)
-
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import Chroma
 
 loader = PyPDFLoader("./public_key_cryptography.pdf")
 pdf_data = loader.load()
 
-pdf_data[0]
+print(pdf_data[0])
 
 """**Embeddings model from HuggingsFace**"""
 
-from langchain_huggingface import HuggingFaceEmbeddings
 model_kwargs = {'device': 'cpu'}
-embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2", model_kwargs=model_kwargs)
+# hkunlp/instructor-large
+embeddings_model = HuggingFaceEmbeddings(model_name="hkunlp/instructor-large", model_kwargs=model_kwargs)
 
-embeddings_model
+print(embeddings_model)
 
 embeddings = embeddings_model.embed_query(pdf_data[0].page_content)
 
-embeddings
+# embeddings
 
-len(embeddings) # embeddings length
+print(len(embeddings))  # embeddings length
 
 """**Split documents from pdfs**"""
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%capture
 # !pip install langchain
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 text_splitter = RecursiveCharacterTextSplitter(
   chunk_size=500,
   chunk_overlap=50,
@@ -55,28 +47,27 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 documents_split = text_splitter.split_documents(pdf_data)
 
-len(pdf_data)
+print(len(pdf_data))
 
-len(documents_split)
+print(len(documents_split))
 
-from langchain.vectorstores import Chroma
-
-NOMBRE_INDICE_CHROMA = "instruct-embeddings-public-crypto"
+INDEX_CHROMA_FILE = "instruct-embeddings-public-crypto"
 
 vectorstore_chroma = Chroma.from_documents(
     documents=documents_split,
     embedding=embeddings_model,
-    persist_directory=NOMBRE_INDICE_CHROMA
+    persist_directory=INDEX_CHROMA_FILE
 )
 
 vectorstore_chroma.persist()
 
 # Load from file
 vectorstore_chroma = Chroma(
-    persist_directory=NOMBRE_INDICE_CHROMA,
-    embedding_function=embeddings_model)
+    persist_directory=INDEX_CHROMA_FILE,
+    embedding_function=embeddings_model
+)
 
 query = "What is public key cryptography?"
 docs = vectorstore_chroma.similarity_search_with_score(query, k=5)
 
-docs[3]
+print(docs[3])

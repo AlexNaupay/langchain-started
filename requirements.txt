@@ -10,4 +10,5 @@ tiktoken
 InstructorEmbedding
 sentence_transformers
 langchain-huggingface
+langchain-chroma
 pypdf

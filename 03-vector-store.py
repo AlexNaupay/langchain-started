@@ -63,7 +63,7 @@ if __name__ == '__main__':
     data = load_pdf_file()
 
     # Generamos un Document con una partición de 500 carácteres y un overlap del 10%
-    documents = generate_document_chunks(data, chunk_size=128, overlap=12, function=len)
+    documents = generate_document_chunks(data, chunk_size=500, overlap=50, function=len)
 
     # Si es la primera vez que se instancia el modelo entonces este se va a descargar y se va a cargar en el device CUDA
     embedding_model = instantiate_embedding_model(model="hkunlp/instructor-large", device="cpu")
