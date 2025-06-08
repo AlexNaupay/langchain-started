@@ -1,0 +1,14 @@
+chromadb
+langchain-chroma
+langchain-community
+langchain-core
+langchain-huggingface
+langchain-openai
+openai
+pandas
+pypdf
+python-dotenv
+requests
+sentence_transformers
+tiktoken
+InstructorEmbedding
