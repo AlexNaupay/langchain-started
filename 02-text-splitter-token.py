@@ -16,9 +16,9 @@ all_text = '\n'.join(map(lambda x: x.page_content, data))
 # texts = text_splitter.split_text(all_text)
 
 text_splitter_recursive = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-    model_name="gpt-4",
+    model_name="gpt-4o-mini", # TODO: make sure
     chunk_size=100,
-    chunk_overlap=0,
+    chunk_overlap=2,
 )
 texts = text_splitter_recursive.split_text(all_text)
 

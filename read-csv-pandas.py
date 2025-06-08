@@ -1,5 +1,5 @@
 import pandas
-from langchain_community.document_loaders import DataFrameLoader
+from langchain_community.document_loaders import DataFrameLoader  # There are a lot of loaders available
 from pprint import pprint
 
 data_frame = pandas.read_csv('repos_cairo.csv')

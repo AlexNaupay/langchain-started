@@ -6,22 +6,21 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains.summarize import load_summarize_chain
-from langchain import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
-
 chat_mini = ChatOpenAI(
-    model_name='gpt-4o-mini',
+    model='gpt-4o-mini',
     n=1,
     temperature=0.3
 )
 
 # Download and store PDF
-url = 'https://www.cs.virginia.edu/~evans/greatworks/diffie.pdf'
+url = 'https://cseweb.ucsd.edu/classes/wi22/cse127-a/scribenotes/14-pubkeycrypto-notes.pdf'
 response = requests.get(url)
 with open('public_key_cryptography.pdf', 'wb') as f:
     f.write(response.content)
@@ -62,8 +61,9 @@ cadena_que_resume_con_slang = load_summarize_chain(
     # verbose=True
 )
 
-response = cadena_que_resume_con_slang.run(data[:2])
-print(response)
+# response = cadena_que_resume_con_slang.run(data[:2]) # Deprecated
+response = cadena_que_resume_con_slang.invoke(data[:2])
+print(response['output_text'])
 
 
 # response = chat_mini.invoke("Cómo puedo lograr una clase más interactiva para estudiantes virtuales?")

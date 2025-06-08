@@ -15,5 +15,11 @@ documents = text_splitter.split_documents(data)
 
 print(f"Data len= {len(data)}")
 print(f"Split data len = {len(documents)}")
-print(documents[0])
+
+print('-'*100)
+split = 2
+print(f"Split {split}")
+print(documents[split])
+print('-'*50)
+print(documents[split+1])
 

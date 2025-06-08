@@ -88,3 +88,5 @@ if __name__ == '__main__':
     # Veamos cuantos documentos generó y un ejemplo del mismo
     print(len(docs))
     print(docs[3])
+
+# TODO: Generate with other vector engine. CRUD: How to insert, update, delete and retrieve data.
