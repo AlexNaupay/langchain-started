@@ -162,3 +162,4 @@ cython_debug/
 /public_key_cryptography.pdf
 /instruct-embeddings-public-crypto/
 poetry.lock
+uv.lock
