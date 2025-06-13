@@ -1,11 +1,5 @@
-### Poetry
+### uv
 ```bash
-# Poetry
-poetry install --no-root
-source .venv/bin/activate
-python utility-chain.py # Download pdf for examples
-
-# uv
 uv venv
 uv pip install -r pyproject.toml
 # OR
@@ -14,6 +8,17 @@ uv pip sync requirements.txt  # Install dependencies from a requirements.txt fil
 
 source .venv/bin/activate
 deactivate
+
+uv export --no-hashes --format requirements-txt > requirements.txt
+```
+
+### Poetry
+```bash
+# Poetry
+poetry install --no-root
+source .venv/bin/activate
+python utility-chain.py # Download pdf for examples
+# With poetry there is pip
 ```
 
 
