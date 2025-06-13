@@ -9,6 +9,8 @@ uv pip sync requirements.txt  # Install dependencies from a requirements.txt fil
 source .venv/bin/activate
 deactivate
 
+uv add boto3  # Add to pyproject.toml
+
 uv export --no-hashes --format requirements-txt > requirements.txt
 ```
 

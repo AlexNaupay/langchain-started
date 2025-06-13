@@ -1,0 +1,12 @@
+```json
+{
+  "volcano_name": "Ubinas",
+  "analysis_period": "2025-05-01, 2025-05-31",
+  "issued_at": "2025-06-02",
+  "alert_level": "verde",
+  "summary": "El Instituto Geofísico del Perú (IGP) informa que el comportamiento dinámico del volcán Ubinas (región Moquegua) no ha presentado variaciones significativas; por lo tanto, no existen indicios asociados al desarrollo de un proceso eruptivo en el corto plazo. En consecuencia, el nivel de alerta volcánica se mantiene en color verde.",
+  "analysis": "Se han identificado en promedio 3 sismos por día asociados a procesos de ruptura de rocas en el interior del volcán, además de un total de 4 sismos vinculados a la circulación de fluidos volcánicos (gases y vapor de agua). Se observaron emisiones de gases y vapor de agua hasta 1000 m de altura sobre la cima del volcán. No se ha observado deformación significativa en el edificio volcánico. Se han observado bajas emisiones (157 toneladas/día) de dióxido de azufre (SO2). No se identificaron anomalías térmicas en el volcán Ubinas.",
+  "perspectives": "A corto plazo, no existen indicios asociados al desarrollo de un nuevo proceso eruptivo, por lo que el nivel de alerta volcánica se mantiene en color verde.",
+  "recommendations": "Mantenerse informado en todo momento sobre la actividad volcánica del Ubinas mediante los reportes y boletines emitidos por el IGP: https://www.igp.gob.pe/servicios/centro-vulcanologico-nacional/ Cooperantes: Senamhi, MIROVA (https://www.mirovweb.it/) y NASA FIRMS."
+}
+```

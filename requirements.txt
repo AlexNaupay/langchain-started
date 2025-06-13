@@ -12,3 +12,4 @@ requests
 sentence_transformers
 tiktoken
 InstructorEmbedding
+boto3
