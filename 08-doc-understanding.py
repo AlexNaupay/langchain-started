@@ -19,7 +19,7 @@ with open(REPORT_FILE_PATH, "rb") as file:
     document_bytes = file.read()
 
 prompt = """Eres un asistente que extrae datos del reportes vulcanológicos, en formato json 
-(es muy importante que el resultado lo des en json) con las siguientes llaves:
+(es muy importante que el resultado lo des en json, Responde SOLO con el JSON, sin texto adicional.) con las siguientes llaves:
 - volcano_name, descripción: Nombre de volcán
 - analysis_period, descripción: Periodo de análisis, fechas de la forma YYYY-MM-DD separado por una ','
 - issued_at, descripción: Fecha de emisión en la forma YYYY-MM-DD
