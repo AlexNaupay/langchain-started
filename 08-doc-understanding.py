@@ -60,6 +60,8 @@ try:
     response_text = response["output"]["message"]["content"][0]["text"]
     print(response_text)
 
+    # /\\{(?:.|\\n)*?\\}/
+
 except (ClientError, Exception) as e:
     print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
     exit(1)
