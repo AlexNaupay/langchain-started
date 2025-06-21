@@ -23,5 +23,5 @@ python utility-chain.py # Download pdf for examples
 # With poetry there is pip
 ```
 
-
+// NLTK_DATA=PATH_
 // langchain=0.0.216 Plat
